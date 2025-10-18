@@ -1,0 +1,26 @@
+table 'Entrada de dados'
+	lineageTag: f89bc30c-ffe0-4f4d-a1be-432230aede4e
+
+	measure 'Valor Entrada de dados' = SELECTEDVALUE('Entrada de dados'[Entrada de dados]) * 2 / 100 +2
+		formatString: 0
+		lineageTag: a3abe3b5-5244-4d65-bba2-935d38e2ca61
+
+	column 'Entrada de dados'
+		formatString: 0
+		lineageTag: e89c9f63-6d60-499d-b3bb-b8d634caf741
+		summarizeBy: none
+		sourceColumn: [Value]
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 0
+				}
+
+		annotation SummarizationSetBy = User
+
+	partition 'Entrada de dados' = calculated
+		mode: import
+		source = GENERATESERIES(0, 100)
+
+	annotation PBI_Id = 887829416e0c4a1ea16c6fbbf6866bc5
+
