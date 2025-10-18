@@ -5,7 +5,7 @@ table calendario
 	column Data
 		dataType: dateTime
 		isKey
-		formatString: Long Date
+		formatString: Short Date
 		lineageTag: 5bbd1e53-f752-4b93-822a-95109a9044fc
 		summarizeBy: none
 		sourceColumn: Data
@@ -18,22 +18,25 @@ table calendario
 		dataType: int64
 		formatString: 0
 		lineageTag: 8f0f510a-2b12-426c-8ecb-e7e8e8e2e138
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: Ano
 
-		annotation SummarizationSetBy = Automatic
+		annotation SummarizationSetBy = User
 
 	column MesAno
 		dataType: string
 		lineageTag: b63a2855-0bb6-4312-bb85-9c82c3dacf16
 		summarizeBy: none
 		sourceColumn: MesAno
+		sortByColumn: MesInicio
+
+		changedProperty = SortByColumn
 
 		annotation SummarizationSetBy = Automatic
 
 	column MesInicio
 		dataType: dateTime
-		formatString: Long Date
+		formatString: Short Date
 		lineageTag: 7379648c-7f3b-44ee-932e-a7fa5a627a06
 		summarizeBy: none
 		sourceColumn: MesInicio

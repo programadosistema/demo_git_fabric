@@ -21,10 +21,10 @@ table cotacoes
 	column Cotacao
 		dataType: double
 		lineageTag: 2a67d62b-a1f7-4bf6-9eac-c92f7190a3fa
-		summarizeBy: sum
+		summarizeBy: average
 		sourceColumn: Cotacao
 
-		annotation SummarizationSetBy = Automatic
+		annotation SummarizationSetBy = User
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
@@ -38,7 +38,7 @@ table cotacoes
 
 	column Data
 		dataType: dateTime
-		formatString: Long Date
+		formatString: Short Date
 		lineageTag: bcf9d1c2-9415-4e9b-a79c-9d3e7251ee0d
 		summarizeBy: none
 		sourceColumn: Data
