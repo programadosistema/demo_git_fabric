@@ -9,6 +9,7 @@ table transacoes
 
 	column ID
 		dataType: double
+		displayFolder: Colunas
 		lineageTag: 2448633f-722b-4d6d-bbc4-89fd15dfda05
 		summarizeBy: count
 		sourceColumn: ID
@@ -19,7 +20,8 @@ table transacoes
 
 	column Data
 		dataType: dateTime
-		formatString: Long Date
+		formatString: Short Date
+		displayFolder: Colunas
 		lineageTag: cce3ea6b-8ba9-447a-819a-dea203d3cebd
 		summarizeBy: none
 		sourceColumn: Data
@@ -30,6 +32,7 @@ table transacoes
 
 	column Total
 		dataType: double
+		displayFolder: Colunas
 		lineageTag: 3d9259cc-9824-4aae-9925-63fc41592318
 		summarizeBy: sum
 		sourceColumn: Total
@@ -40,6 +43,7 @@ table transacoes
 
 	column Moeda
 		dataType: string
+		displayFolder: Colunas
 		lineageTag: 0bf907d8-13f8-495b-8d04-b7b5e530a644
 		summarizeBy: none
 		sourceColumn: Moeda
