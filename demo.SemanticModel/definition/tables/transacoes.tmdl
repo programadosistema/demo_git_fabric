@@ -7,6 +7,49 @@ table transacoes
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	measure 'Cotação corrigida' = ```
+			
+			
+			VAR __DataCtx = MAX(calendario[Data]) 
+			
+			VAR __UltimaDataComCotacao = 
+			    CALCULATE(
+			        LASTNONBLANK(calendario[Data], [Cotação do dia]),
+			        calendario[Data] <= __DataCtx
+			    )
+			
+			RETURN
+			    CALCULATE(
+			        [Cotação do dia],
+			        calendario[Data] = __UltimaDataComCotacao
+			    )
+			```
+		displayFolder: Medidas
+		lineageTag: 81e3448f-1adb-4d57-88ce-92138bce4f08
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total R$' = ```
+			
+			SUMX(
+			    moedas,
+			    SUMX(
+			        calendario,
+			        COALESCE([Cotação corrigida], 1) * [Valor Total] 
+			    )
+			)
+			```
+		displayFolder: Medidas
+		lineageTag: c54715ef-100c-4c6a-8225-1718e6c75309
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'valor nulo' = COALESCE('Entrada de dados'[Valor Entrada de dados],"valor nulo")
+		displayFolder: Medidas
+		lineageTag: 3e9ddea0-8d49-44fe-be1f-d7475be32609
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column ID
 		dataType: double
 		displayFolder: Colunas

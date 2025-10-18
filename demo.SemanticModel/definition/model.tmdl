@@ -32,6 +32,7 @@ ref table moedas
 ref table calendario
 ref table transacoes
 ref table cotacoes
+ref table 'Entrada de dados'
 
 ref cultureInfo pt-BR
 
